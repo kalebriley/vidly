@@ -1,0 +1,19 @@
+{
+  "name": "vidly",
+  "version": "1.0.0",
+  "description": "Movie rental service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalebriley/vidly.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kalebriley/vidly/issues"
+  },
+  "homepage": "https://github.com/kalebriley/vidly#readme"
+}
