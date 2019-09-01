@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/kalebriley/vidly/issues"
   },
-  "homepage": "https://github.com/kalebriley/vidly#readme"
+  "homepage": "https://github.com/kalebriley/vidly#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
