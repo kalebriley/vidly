@@ -20,6 +20,10 @@ app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
 app.use(helmet())
 
+// configure view engine
+app.set('view engine', 'pug')
+app.set('views', './src/views')
+
 // configure routes
 app.use(express.static('./src/public'))
 app.use('/api/genres', genres)
