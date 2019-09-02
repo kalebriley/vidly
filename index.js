@@ -2,9 +2,15 @@ const express = require('express');
 const Joi = require('joi');
 const helmet = require('helmet')
 const genres = require('./src/routes/genres.route')
+const morgan = require('morgan')
 
 // app init
 const app = express();
+
+// configure development middleware
+if (app.get('env') === 'development') {
+  app.use(morgan('tiny'))
+}
 
 // configure middleware
 app.use(express.urlencoded({ extended: true }))
