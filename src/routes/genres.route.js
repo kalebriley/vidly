@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 // @route  GET /api/genres/:id
 // @desc   Get genre with id
 // @access Public
-router.get('/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
     const genre = [genres.find(g => g.id == parseInt(req.params.id))];
     res.send(
         genre.filter(e => {
@@ -31,7 +31,7 @@ router.get('/:id', (req, res) => {
 // @route  POST /api/genres
 // @desc   Create a genere with name
 // @access Public
-router.post('/', (req, res) => {
+router.post('/', (req, res, next) => {
     let { error } = validateGenre(req.body)
 
     if (error) {
@@ -48,7 +48,7 @@ router.post('/', (req, res) => {
 // @route  PUT /api/genres
 // @desc   Update genre with id
 // @access Public
-router.put('/:id', (req, res) => {
+router.put('/:id', (req, res, next) => {
     let { error } = validateGenre(req.body)
 
     if (error) {
@@ -67,7 +67,7 @@ router.put('/:id', (req, res) => {
 // @route  DELETE /api/genres/:id
 // @desc   Delete genre with id
 // @access Public
-router.delete('/:id', (req, res) => {
+router.delete('/:id', (req, res, next) => {
     const existingGenre = genres.find(g => g.id == parseInt(req.params.id))
 
     if (existingGenre) {
