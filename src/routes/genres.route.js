@@ -89,6 +89,7 @@ function validateGenre(genre) {
     return Joi.validate(genre, schema);
 }
 
+// @desc checks if genre exists
 function genreExists(genre) {
     return genres.find(g => g.name == genre.name.toLowerCase())
 }
