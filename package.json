@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/kalebriley/vidly#readme",
   "dependencies": {
+    "config": "^3.2.2",
     "express": "^4.17.1",
     "helmet": "^3.20.1",
     "joi": "^14.3.1",

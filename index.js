@@ -1,8 +1,8 @@
 const express = require('express');
-const Joi = require('joi');
 const helmet = require('helmet')
 const genres = require('./src/routes/genres.route')
 const morgan = require('morgan')
+const config = require('config')
 
 // app init
 const app = express();
