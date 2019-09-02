@@ -9,10 +9,16 @@ let genres = [
     { id: 3, name: 'romantic' }
 ];
 
+// @route  GET /api/genres
+// @desc   Get all genres
+// @access Public
 router.get('/', (req, res) => {
     res.send(genres);
 });
 
+// @route  GET /api/genres/:id
+// @desc   Get genre with id
+// @access Public
 router.get('/:id', (req, res) => {
     const genre = [genres.find(g => g.id == parseInt(req.params.id))];
     res.send(
@@ -22,6 +28,9 @@ router.get('/:id', (req, res) => {
     );
 });
 
+// @route  POST /api/genres
+// @desc   Create a genere with name
+// @access Public
 router.post('/', (req, res) => {
     let { error } = validateGenre(req.body)
 
@@ -36,6 +45,9 @@ router.post('/', (req, res) => {
     }
 });
 
+// @route  PUT /api/genres
+// @desc   Update genre with id
+// @access Public
 router.put('/:id', (req, res) => {
     let { error } = validateGenre(req.body)
 
@@ -52,9 +64,12 @@ router.put('/:id', (req, res) => {
     }
 });
 
+// @route  DELETE /api/genres/:id
+// @desc   Delete genre with id
+// @access Public
 router.delete('/:id', (req, res) => {
-
     const existingGenre = genres.find(g => g.id == parseInt(req.params.id))
+
     if (existingGenre) {
         genres = genres.filter(g => g.id !== existingGenre.id)
         res.send(genres)
@@ -63,6 +78,7 @@ router.delete('/:id', (req, res) => {
     }
 });
 
+// @desc validates a req.body against the joi schema
 function validateGenre(genre) {
     const schema = {
         name: Joi.string()
