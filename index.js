@@ -8,6 +8,7 @@ const app = express();
 // configure middleware
 app.use(express.urlencoded({ extended: true }))
 app.use(express.json());
+app.use(express.static('./src/public'))
 
 // configure routes
 app.use('/api/genres', genres)
