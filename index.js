@@ -24,8 +24,8 @@ app.use(helmet())
 // Connect to data base
 const db = `mongodb+srv://${config.get('db.db_username')}:${config.get('db.db_password')}@cluster0-sspue.mongodb.net/main?retryWrites=true&w=majority`
 Mongoose.connect(db, { useNewUrlParser: true })
-  .then(() => console.log('MongoDB connected...'))
-  .catch(ex => console.log('MongoDB failled to connect...'))
+  .then(() => startupDebugger('MongoDB connected...'))
+  .catch(ex => startupDebugger('MongoDB failled to connect...'))
 
 // configure view engine
 app.set('view engine', 'pug')
@@ -34,6 +34,7 @@ app.set('views', './src/views')
 // configure routes
 app.use(express.static('./src/public'))
 app.use('/api/genres', routes.genres)
+app.use('/api/customers', routes.customers)
 app.use('/', routes.home)
 startupDebugger('Routes configured...')
 
