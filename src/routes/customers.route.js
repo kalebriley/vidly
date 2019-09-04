@@ -1,18 +1,6 @@
-const Joi = require('joi')
-const Mongoose = require('mongoose')
-const Joigoose = require('joigoose')(Mongoose)
+const { Customer, validateCustomer } = require('../models/customer.model')
 const express = require('express')
 const router = express.Router()
-
-// Define model
-const joiCustomerSchema = Joi.object({
-    name: Joi.string().min(3).required(),
-    isGold: Joi.boolean().default(false),
-    phone: Joi.string().min(7).regex(/[0-9]/),
-    email: Joi.string().email().required()
-})
-const mongooseCustomerSchema = new Mongoose.Schema(Joigoose.convert(joiCustomerSchema))
-const Customer = Mongoose.model('Customer', mongooseCustomerSchema)
 
 router.get('/', async (req, res, next) => {
     try {
@@ -106,10 +94,6 @@ router.delete('/:id', async (req, res, next) => {
         next()
     }
 });
-
-function validateCustomer(customer) {
-    return Joi.validate(customer, joiCustomerSchema);
-}
 
 module.exports = router
 
