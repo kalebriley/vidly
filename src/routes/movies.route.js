@@ -3,10 +3,8 @@ const express = require('express')
 const router = express.Router()
 
 router.get('/', async (req, res, next) => {
-    let searchQuery = req.query.search
-
     try {
-        let movies = await Movie.find(searchQuery)
+        let movies = await Movie.find()
             .populate('genres', 'name -_id')
             .sort({ name: 1 })
         res.send(movies)
