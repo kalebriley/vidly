@@ -35,6 +35,7 @@ app.set('views', './src/views')
 app.use(express.static('./src/public'))
 app.use('/api/genres', routes.genres)
 app.use('/api/customers', routes.customers)
+app.use('/api/movies', routes.movies)
 app.use('/', routes.home)
 startupDebugger('Routes configured...')
 
